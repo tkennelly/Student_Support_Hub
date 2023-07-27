@@ -1,8 +1,7 @@
+import LoginForm from "./LoginForm"
+
 Login = ()=>{
 
-    return (
-  <></>
-    )
-  }
+}
   
   export default Login 
