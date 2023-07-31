@@ -9,15 +9,15 @@ const EditStudent = ({ allStudents }) => {
   const [accomodation, setAccomodation] = useState()
   const [editNameModal, setEditNameModal] = useState(false)
 
-//   const getAccomo = async() => {
-//     let selectedStudent = allStudents.find(student => student.first_name === first_name)
-//     const response = await axios.get(`${selectedStudent.accomodations}`)
-//     setAccomodation(response.data)
-//   }
+  const getAccomo = async() => {
+    let selectedStudent = allStudents.find(student => student.first_name === first_name)
+    const response = await axios.get(`${selectedStudent.accomodations}`)
+    setAccomodation(response.data)
+  }
 // somehow make it so it grabs student.accomodations specifically and not just all of them. what is there MIGHT work
-//   useEffect(()=>{
-//     getAccomo()
-//   },[])
+  useEffect(()=>{
+    getAccomo()
+  },[])
 
   let { first_name } = useParams()
   console.log(first_name)
