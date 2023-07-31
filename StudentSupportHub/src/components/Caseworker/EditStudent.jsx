@@ -42,8 +42,8 @@ const deleteStudent = async () => {
     let selectedStudent = allStudents.find(student => student.first_name === first_name)
     console.log(selectedStudent)
     await axios.delete(`http://localhost:8000/students/${selectedStudent.id}`)
-    window.location.reload()
-    // change to navigate maybe
+    let navigate = useNavigate()
+    navigate('/students')
 }
 
   

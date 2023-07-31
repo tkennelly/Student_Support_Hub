@@ -1,5 +1,5 @@
 import axios from 'axios'
-import React, { useState } from 'react'
+import React, { useState, useNavigate } from 'react'
 
 const AddAccomo = () => {
 
@@ -14,12 +14,19 @@ const AddAccomo = () => {
     })
   }
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
-    // axios call
-    console.log('Accommodations:', accommodations)
+   await axios.post('http://localhost:8000/accomodations/', accommodations)
+      .then((response) => {
+        console.log('Response:', response.data)
+        let navigate = useNavigate()
+        navigate('/students')
+      })
+      .catch((error) => {
+        console.error('Error:', error)
+      })
+    console.log('Accomodations:', accommodations)
   }
-
   return (
     <form onSubmit={handleSubmit}>
       <div>
@@ -33,5 +40,6 @@ const AddAccomo = () => {
     </form>
   )
 }
+
 
 export default AddAccomo

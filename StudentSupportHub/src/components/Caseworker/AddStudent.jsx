@@ -2,11 +2,6 @@ import axios from "axios"
 import React, { useState, } from 'react'
 import { useNavigate } from "react-router-dom"
 
- // trying this out for POST
-//  axios.defaults.xsrfHeaderName = 'X-CSRFTOKEN'
-//  axios.defaults.xsrfCookieName = 'csrftoken'
-//  axios.defaults.withCredentials = true
-
 
 const AddStudent = ()=>{
 
@@ -23,9 +18,9 @@ const AddStudent = ()=>{
   }
 
   let navigate = useNavigate()
-  const navAccommo = () => {
-      navigate('/addaccommo')
-  }
+  // const navAccommo = () => {
+  //     navigate('/addaccommo')
+  // }
 
   // below is my original function
   const handleSubmit = async (e) => {
@@ -33,40 +28,14 @@ const AddStudent = ()=>{
    await axios.post('http://localhost:8000/students/', formData)
       .then((response) => {
         console.log('Response:', response.data)
+        navigate('/addaccommo')
       })
       .catch((error) => {
         console.error('Error:', error)
       })
     console.log('Form Data:', formData)
+    
   }
-
-  // now here is chatGPT's function
-  // const handleSubmit = (e) => {
-  //   e.preventDefault();
-
-    // Get the CSRF token from the cookie
-  //   const csrfToken = getCookie('csrftoken');
-
-  //   axios.post('http://localhost:8000/students/', formData, {
-  //     headers: {
-  //       'X-CSRFToken': csrfToken,
-  //     },
-  //   })
-  //     .then((response) => {
-  //       console.log('Response:', response.data);
-  //     })
-  //     .catch((error) => {
-  //       console.error('Error:', error);
-  //     });
-
-  //   console.log('Form Data:', formData);
-  // };
-
-  // Helper function to retrieve the CSRF token from cookies
-  // function getCookie(name) {
-  //   const cookieValue = document.cookie.match('(^|;)\\s*' + name + '\\s*=\\s*([^;]+)');
-  //   return cookieValue ? cookieValue.pop() : '';
-  // }
 
 
   return (
