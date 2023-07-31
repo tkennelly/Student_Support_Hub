@@ -1,8 +1,116 @@
-AddStudent = ()=>{
+import axios from "axios"
+import React, { useState, } from 'react'
+import { useNavigate } from "react-router-dom"
 
-    return (
-  <></>
-    )
+ // trying this out for POST
+//  axios.defaults.xsrfHeaderName = 'X-CSRFTOKEN'
+//  axios.defaults.xsrfCookieName = 'csrftoken'
+//  axios.defaults.withCredentials = true
+
+
+const AddStudent = ()=>{
+
+
+  const initialState = {first_name: '', last_name: '', learning_plan: ''}
+  const [formData, setFormData] = useState(initialState)
+
+  const handleChange = (e) => {
+    const { name, value } = e.target
+    setFormData({
+      ...formData,
+      [name]: value
+    })
   }
+
+  let navigate = useNavigate()
+  const navAccommo = () => {
+      navigate('/addaccommo')
+  }
+
+  // below is my original function
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+   await axios.post('http://localhost:8000/students/', formData)
+      .then((response) => {
+        console.log('Response:', response.data)
+      })
+      .catch((error) => {
+        console.error('Error:', error)
+      })
+    console.log('Form Data:', formData)
+  }
+
+  // now here is chatGPT's function
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
+
+    // Get the CSRF token from the cookie
+  //   const csrfToken = getCookie('csrftoken');
+
+  //   axios.post('http://localhost:8000/students/', formData, {
+  //     headers: {
+  //       'X-CSRFToken': csrfToken,
+  //     },
+  //   })
+  //     .then((response) => {
+  //       console.log('Response:', response.data);
+  //     })
+  //     .catch((error) => {
+  //       console.error('Error:', error);
+  //     });
+
+  //   console.log('Form Data:', formData);
+  // };
+
+  // Helper function to retrieve the CSRF token from cookies
+  // function getCookie(name) {
+  //   const cookieValue = document.cookie.match('(^|;)\\s*' + name + '\\s*=\\s*([^;]+)');
+  //   return cookieValue ? cookieValue.pop() : '';
+  // }
+
+
+  return (
+    <form onSubmit={handleSubmit}>
+      <div>
+        <h3>Please enter the First and Last name of the Student, as well as their Learning Plan type.</h3>
+        <label htmlFor="first_name">First Name:</label>
+        <input
+          type="text"
+          id="first_name"
+          name="first_name"
+          value={formData.first_name}
+          onChange={handleChange}
+          required
+        />
+      </div>
+      <div>
+        <label htmlFor="last_name">Last Name:</label>
+        <input
+          type="text"
+          id="last_name"
+          name="last_name"
+          value={formData.last_name}
+          onChange={handleChange}
+          required
+        />
+      </div>
+      <div>
+        <label htmlFor="learning_plan">Learning Plan:</label>
+        <select
+          id="learning_plan"
+          name="learning_plan"
+          value={formData.learning_plan}
+          onChange={handleChange}
+          required
+        >
+          <option value="">Select a Learning Plan</option>
+          <option value="IEP">IEP</option>
+          <option value="504">504</option>
+        </select>
+      </div>
+      <button type="submit">Submit</button>
+    </form>
+  )
+}
   
-  export default AddStudent
+export default AddStudent
