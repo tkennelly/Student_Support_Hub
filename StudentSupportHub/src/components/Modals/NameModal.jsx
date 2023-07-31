@@ -21,6 +21,8 @@ const NameModal = ({ isOpen, onCancel, onConfirm }) => {
       }
     }
 
+    console.log(newName)
+
 
     return (
       <div>

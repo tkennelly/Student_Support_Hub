@@ -6,7 +6,18 @@ import NameModal from '../Modals/NameModal'
 const EditStudent = ({ allStudents }) => {
 
   const [student, setStudent] = useState({})
+  const [accomodation, setAccomodation] = useState()
   const [editNameModal, setEditNameModal] = useState(false)
+
+//   const getAccomo = async() => {
+//     let selectedStudent = allStudents.find(student => student.first_name === first_name)
+//     const response = await axios.get(`${selectedStudent.accomodations}`)
+//     setAccomodation(response.data)
+//   }
+// somehow make it so it grabs student.accomodations specifically and not just all of them. what is there MIGHT work
+//   useEffect(()=>{
+//     getAccomo()
+//   },[])
 
   let { first_name } = useParams()
   console.log(first_name)
@@ -19,16 +30,20 @@ const EditStudent = ({ allStudents }) => {
     setEditNameModal(false)
   }
 
-//   const handleNewName = () => {
-
-//   }
+  const handleNewName = async (newName) => {
+    let selectedStudent = allStudents.find(student => student.first_name === first_name)
+    // console.log(selectedStudent)
+    const res = await axios.put(`http://localhost:8000/students/${selectedStudent.id}`, { ...selectedStudent, first_name: newName })
+    console.log(newName)
+    console.log(res.data)
+  }
 
 const deleteStudent = async () => {
     let selectedStudent = allStudents.find(student => student.first_name === first_name)
     console.log(selectedStudent)
     await axios.delete(`http://localhost:8000/students/${selectedStudent.id}`)
     window.location.reload()
-    // change to navigate
+    // change to navigate maybe
 }
 
   
@@ -51,6 +66,11 @@ console.log(student)
               <h3>Learning Plan: {student.learning_plan}</h3> 
               <p>Accommodations: {student.accomodations}</p> 
               <button onClick={deleteStudent}> Delete Student </button>
+              <NameModal
+                isOpen={editNameModal}
+                onCancel={handleCloseNameModal}
+                onConfirm={handleNewName}
+            />
               {/* <h3>Assigned Teachers: {student.teachers}</h3> <button>Edit</button>
               <h3>Caseworker: {student.caseworker}</h3> <button>Edit</button> */}
           </div>
