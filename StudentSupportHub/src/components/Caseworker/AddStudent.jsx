@@ -24,7 +24,7 @@ const AddStudent = ()=>{
    await axios.post('http://localhost:8000/students/', formData)
       .then((response) => {
         console.log('Response:', response.data)
-        navigate('/addaccommo')
+        navigate('/addaccommo', {state: { student: response.data}})
       })
       .catch((error) => {
         console.error('Error:', error)

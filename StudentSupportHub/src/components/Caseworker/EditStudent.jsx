@@ -15,7 +15,6 @@ const EditStudent = ({ allStudents }) => {
     setAccomodation(response.data)
     return response
   }
-// somehow make it so it grabs student.accomodations specifically and not just all of them. what is there MIGHT work
   useEffect(()=>{
     getAccomo()
   },[])
