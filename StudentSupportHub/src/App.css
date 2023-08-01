@@ -16,6 +16,10 @@
   color: blue;
 }
 
+.teacher-name {
+  color: blue;
+}
+
 .name-and-button {
   display: flex !important;
   justify-content: row !important;
@@ -31,4 +35,16 @@
   justify-content: row !important;
   justify-content: center !important;
   margin-left: 400px;
+}
+
+.please {
+  max-width: 400px;
+  display: flex !important;
+  justify-content: row !important;
+  justify-content: center !important;
+  margin-left: 400px;
+}
+
+.lp-dropdown {
+margin-right: 25px;
 }

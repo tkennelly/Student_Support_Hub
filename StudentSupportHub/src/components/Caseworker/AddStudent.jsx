@@ -37,7 +37,8 @@ const AddStudent = ()=>{
   return (
     <form onSubmit={handleSubmit}>
       <div>
-        <h3>Please enter the First and Last name of the Student, as well as their Learning Plan type.</h3>
+        <h3 className="please">Please enter the First and Last name of the Student, as well as their Learning Plan type.</h3>
+        <br/>
         <label htmlFor="first_name">First Name:</label>
         <input
           type="text"
@@ -48,6 +49,7 @@ const AddStudent = ()=>{
           required
         />
       </div>
+      <br/>
       <div>
         <label htmlFor="last_name">Last Name:</label>
         <input
@@ -59,7 +61,8 @@ const AddStudent = ()=>{
           required
         />
       </div>
-      <div>
+      <br/>
+      <div className="lp-dropdown">
         <label htmlFor="learning_plan">Learning Plan:</label>
         <select
           id="learning_plan"
@@ -73,6 +76,7 @@ const AddStudent = ()=>{
           <option value="504">504</option>
         </select>
       </div>
+      <br/>
       <button type="submit">Submit</button>
     </form>
   )
