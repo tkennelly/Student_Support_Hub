@@ -24,3 +24,11 @@
   margin-top: 15px;
   margin-bottom: 30px;
 }
+
+.accommodations {
+  max-width: 400px;
+  display: flex !important;
+  justify-content: row !important;
+  justify-content: center !important;
+  margin-left: 400px;
+}
