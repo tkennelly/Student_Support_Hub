@@ -42,12 +42,20 @@ const AddAccomo = () => {
 
   return (
     <form onSubmit={handleSubmit}>
+      <h3> Add list of Accommodations to the Student: </h3>
+      <br/>
       <div>
         <label htmlFor="name">Student First Name:</label>
+        <br/>
+        <br/>
         <input id="student_name" name="name" value={accommodations.student_name} required readOnly/>
+        <div>
+          <br/>
         <label htmlFor="accommodations">Accommodations:</label>
-        <textarea id="bullet_list" name="accommodations" value={accommodations.bullet_list} onChange={handleChange} rows="4" cols="50" required
-        />
+        <br/>
+        <br/>
+        <textarea id="bullet_list" name="accommodations" value={accommodations.bullet_list} onChange={handleChange} rows="10" cols="50" required/>
+        </div>
       </div>
       <button type="submit">Submit</button>
     </form>
