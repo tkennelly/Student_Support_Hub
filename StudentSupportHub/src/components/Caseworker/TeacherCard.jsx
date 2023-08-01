@@ -22,8 +22,7 @@ console.log(teacher)
   return teacher ? (
       <div className='teacher-page'>
           <div className='teacher-details'>
-              <h2>First Name: {teacher.first_name}</h2> 
-              <h2>Last Name: {teacher.last_name}</h2> 
+              <h2>Name: {teacher.first_name} {teacher.last_name}</h2>  
               <h3>Email: {teacher.email}</h3> 
           </div>
       </div>
