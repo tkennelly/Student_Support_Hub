@@ -13,6 +13,7 @@ const EditStudent = ({ allStudents }) => {
     let selectedStudent = allStudents.find(student => student.first_name === first_name)
     const response = await axios.get(`${selectedStudent.accomodations}`)
     setAccomodation(response.data)
+    return response
   }
 // somehow make it so it grabs student.accomodations specifically and not just all of them. what is there MIGHT work
   useEffect(()=>{
@@ -59,12 +60,12 @@ const deleteStudent = async () => {
       }, [allStudents, first_name])
 console.log(student)
 
-  return student ? (
+  return student && accomodation ? (
       <div className='student-page'>
           <div className='student-details'>
               <h2>Name: {student.first_name} {student.last_name}</h2> <button onClick={handleOpenNameModal}>Edit Name</button>
               <h3>Learning Plan: {student.learning_plan}</h3> 
-              <p>Accommodations: {student.accomodations}</p> 
+              <p>Accommodations: {accomodation.bullet_list}</p> 
               <button onClick={deleteStudent}> Delete Student </button>
               <NameModal
                 isOpen={editNameModal}
