@@ -6,6 +6,7 @@ import '../../App.css'
 
 const EditStudent = ({ allStudents }) => {
 
+  let navigate = useNavigate()
   const [student, setStudent] = useState({})
   const [accomodation, setAccomodation] = useState()
   const [editNameModal, setEditNameModal] = useState(false)
@@ -37,6 +38,7 @@ const EditStudent = ({ allStudents }) => {
     const res = await axios.put(`http://localhost:8000/students/${selectedStudent.id}`, { ...selectedStudent, first_name: newName })
     console.log(newName)
     console.log(res.data)
+    navigate('/students')
   }
 
 const deleteStudent = async () => {
