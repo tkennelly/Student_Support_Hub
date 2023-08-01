@@ -5,3 +5,9 @@
   text-align: center;
 }
 
+.desc-p {
+  max-width: 600px;
+  text-align: center;
+  padding: 2rem;
+  margin-left: 253px;
+}
