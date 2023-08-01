@@ -5,7 +5,6 @@ import { useNavigate } from "react-router-dom"
 
 const AddStudent = ()=>{
 
-
   const initialState = {first_name: '', last_name: '', learning_plan: ''}
   const [formData, setFormData] = useState(initialState)
 
@@ -18,9 +17,6 @@ const AddStudent = ()=>{
   }
 
   let navigate = useNavigate()
-  // const navAccommo = () => {
-  //     navigate('/addaccommo')
-  // }
 
   // below is my original function
   const handleSubmit = async (e) => {
