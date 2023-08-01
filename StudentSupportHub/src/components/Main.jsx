@@ -1,5 +1,7 @@
 import { Routes, Route } from "react-router-dom"
 import Home from "./Home"
+import Stack from 'react-bootstrap/Stack'
+import 'bootstrap/dist/css/bootstrap.min.css';
 import StudentList from "./Caseworker/StudentList"
 import EditStudent from "./Caseworker/EditStudent"
 import AddStudent from "./Caseworker/AddStudent"

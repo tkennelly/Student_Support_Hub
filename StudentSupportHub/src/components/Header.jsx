@@ -1,13 +1,12 @@
 import { Link } from 'react-router-dom'
-import Nav from './Nav'
+import NavBS from './Nav'
 
 
 const Header = ()=>{
 
     return (
       <div className="header">
-        <Link to='/home'>Home</Link>
-        <Nav />
+        <NavBS />
       </div>
     )
   }
