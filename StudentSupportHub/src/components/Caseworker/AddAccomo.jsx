@@ -1,5 +1,6 @@
 import axios from 'axios'
 import React, { useState, useNavigate } from 'react'
+// import AddStudent from './AddStudent'
 
 const AddAccomo = () => {
 
@@ -7,10 +8,10 @@ const AddAccomo = () => {
   const [accommodations, setAccommodations] = useState(initialState)
 
   const handleChange = (e) => {
-    const { name, value } = e.target
+    const { id, value } = e.target
     setAccommodations({
       ...accommodations,
-      [name]: value
+      [id]: value
     })
   }
 
@@ -27,13 +28,14 @@ const AddAccomo = () => {
       })
     console.log('Accomodations:', accommodations)
   }
+
   return (
     <form onSubmit={handleSubmit}>
       <div>
         <label htmlFor="name">Student First Name:</label>
-        <input id="name" name="name" value={accommodations.student_name} onChange={handleChange} required/>
+        <input id="student_name" name="name" value={accommodations.student_name} onChange={handleChange} required/>
         <label htmlFor="accommodations">Accommodations:</label>
-        <textarea id="accommodations" name="accommodations" value={accommodations.bullet_list} onChange={handleChange} rows="4" cols="50" required
+        <textarea id="bullet_list" name="accommodations" value={accommodations.bullet_list} onChange={handleChange} rows="4" cols="50" required
         />
       </div>
       <button type="submit">Submit</button>
