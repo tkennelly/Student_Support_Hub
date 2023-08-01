@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import axios from 'axios'
 import { useNavigate, useParams } from 'react-router-dom'
 import NameModal from '../Modals/NameModal'
+import '../../App.css'
 
 const EditStudent = ({ allStudents }) => {
 
@@ -62,9 +63,11 @@ console.log(student)
   return student && accomodation ? (
       <div className='student-page'>
           <div className='student-details'>
-              <h2>Name: {student.first_name} {student.last_name}</h2> <button onClick={handleOpenNameModal}>Edit Name</button>
+            <div className="name-and-button">
+              <h2>{student.first_name} {student.last_name}</h2> <button onClick={handleOpenNameModal}>Edit Name</button>
+            </div>
               <h3>Learning Plan: {student.learning_plan}</h3> 
-              <p>Accommodations: {accomodation.bullet_list}</p> 
+              <p>Accommodations:</p> <p className="accommodations"> {accomodation.bullet_list}</p> 
               <button onClick={deleteStudent}> Delete Student </button>
               <NameModal
                 isOpen={editNameModal}

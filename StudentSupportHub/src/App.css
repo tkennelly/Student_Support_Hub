@@ -15,3 +15,12 @@
 .student-name {
   color: blue;
 }
+
+.name-and-button {
+  display: flex !important;
+  justify-content: row !important;
+  justify-content: center !important;
+  gap: 50px;
+  margin-top: 15px;
+  margin-bottom: 30px;
+}
