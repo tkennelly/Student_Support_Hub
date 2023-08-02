@@ -22,7 +22,6 @@ const EditStudent = ({ allStudents }) => {
   },[])
 
   let { first_name } = useParams()
-  console.log(first_name)
 
   const handleOpenNameModal = () => {
     setEditNameModal(true)
@@ -34,33 +33,20 @@ const EditStudent = ({ allStudents }) => {
 
   const handleNewName = async (newName) => {
     let selectedStudent = allStudents.find(student => student.first_name === first_name)
-    // console.log(selectedStudent)
     const res = await axios.put(`http://localhost:8000/students/${selectedStudent.id}`, { ...selectedStudent, first_name: newName })
-    console.log(newName)
     console.log(res.data)
     navigate('/students')
   }
 
   const deleteStudent = async () => {
       let selectedStudent = allStudents.find(student => student.first_name === first_name)
-      console.log(selectedStudent)
       await axios.delete(`http://localhost:8000/students/${selectedStudent.id}`)
       let navigate = useNavigate()
       navigate('/students')
   }
 
-  
-  console.log(allStudents)
-
-  // loop on "|"
-
-  // let accomList = accomodation.bullet_list.split("|")
-
-  // console.log(accomodation.bullet_list)
 
   let accomBulletList = (x) => {
-    console.log("penis poopness")
-    console.log(x)
     let accomList = x.bullet_list.split("|")
     let bulletList = ""
 
@@ -75,9 +61,7 @@ const EditStudent = ({ allStudents }) => {
 
   useEffect(() => {
           let selectedStudent = allStudents.find(student => student.first_name === first_name)
-          console.log(selectedStudent)
           setStudent(selectedStudent)
-          console.log(student)
       }, [allStudents, first_name])
 console.log(student)
 

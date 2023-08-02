@@ -18,7 +18,6 @@ const AddStudent = ()=>{
 
   let navigate = useNavigate()
 
-  // below is my original function
   const handleSubmit = async (e) => {
     e.preventDefault()
    await axios.post('http://localhost:8000/students/', formData)

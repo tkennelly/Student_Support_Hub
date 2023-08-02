@@ -9,7 +9,6 @@ const TeacherCard = ({ allTeachers }) => {
   console.log(allTeachers)
 
   let { first_name } = useParams()
-  console.log(first_name)
 
   useEffect(() => {
           let selectedTeacher = allTeachers.find(teacher => teacher.first_name === first_name)
