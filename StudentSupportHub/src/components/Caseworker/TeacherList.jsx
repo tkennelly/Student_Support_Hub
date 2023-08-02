@@ -28,7 +28,7 @@ const TeacherList = ({allTeachers, setAllTeachers}) => {
               allTeachers.map((teacher, key) => (
                   <div key={key} onClick={()=>showTeacher(teacher.first_name)} className="teacher">
                       <h2 className="teacher-name">{teacher.first_name} {teacher.last_name}</h2>
-                      
+                      <br/>
                   </div>
               ))
           }
