@@ -79,8 +79,6 @@ console.log(student)
                 onCancel={handleCloseNameModal}
                 onConfirm={handleNewName}
             />
-              {/* <h3>Assigned Teachers: {student.teachers}</h3> <button>Edit</button>
-              <h3>Caseworker: {student.caseworker}</h3> <button>Edit</button> */}
           </div>
       </div>
   ) : <div> Loading ... </div>
