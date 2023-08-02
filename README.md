@@ -2,7 +2,7 @@
 
 ## Connecting Teachers and Caseworkers
 
-![app main page screenshot](PNGs/SSHHome.png)
+![app main page screenshot](PNGs/StudentSupportHub/SSHHome.png)
 
 
 [Student_Support_Hub-backend](https://github.com/tkennelly/Student_Support_Hub-backend)
@@ -34,8 +34,8 @@ Student Support Hub is designed with simplicity in mind, making it easy for case
 
 ## Wireframe and CHD
 
-![wireframe](PNGs/SSHWireframe.png)
-![CHD](PNGs/SSHCHD.png)
+![wireframe](PNGs/StudentSupportHub/SSHWireframe.png)
+![CHD](PNGs/StudentSupportHub/SSHCHD.png)
 
 ## Credit
 
