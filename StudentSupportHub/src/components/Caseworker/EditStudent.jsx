@@ -41,16 +41,35 @@ const EditStudent = ({ allStudents }) => {
     navigate('/students')
   }
 
-const deleteStudent = async () => {
-    let selectedStudent = allStudents.find(student => student.first_name === first_name)
-    console.log(selectedStudent)
-    await axios.delete(`http://localhost:8000/students/${selectedStudent.id}`)
-    let navigate = useNavigate()
-    navigate('/students')
-}
+  const deleteStudent = async () => {
+      let selectedStudent = allStudents.find(student => student.first_name === first_name)
+      console.log(selectedStudent)
+      await axios.delete(`http://localhost:8000/students/${selectedStudent.id}`)
+      let navigate = useNavigate()
+      navigate('/students')
+  }
 
   
   console.log(allStudents)
+
+  // loop on "|"
+
+  // let accomList = accomodation.bullet_list.split("|")
+
+  // console.log(accomodation.bullet_list)
+
+  let accomBulletList = (x) => {
+    console.log("penis poopness")
+    console.log(x)
+    let accomList = x.bullet_list.split("|")
+    let bulletList = ""
+
+    for(let i=0;i<accomList.length;i++) {
+      bulletList += `<li> ${accomList[i]} </li>`
+    }
+
+    return bulletList
+  } 
 
 
 
@@ -69,7 +88,7 @@ console.log(student)
               <h2>{student.first_name} {student.last_name}</h2> <button onClick={handleOpenNameModal}>Edit Name</button>
             </div>
               <h3>Learning Plan: {student.learning_plan}</h3> 
-              <p>Accommodations:</p> <p className="accommodations"> {accomodation.bullet_list}</p> 
+              <p>Accommodations:</p> <ul className="accommodations" dangerouslySetInnerHTML={{__html: accomBulletList(accomodation)}}></ul> 
               <button onClick={deleteStudent}> Delete Student </button>
               <NameModal
                 isOpen={editNameModal}

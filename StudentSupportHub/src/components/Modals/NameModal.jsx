@@ -29,7 +29,8 @@ const NameModal = ({ isOpen, onCancel, onConfirm }) => {
         <div>
           <h3>Please input updated name:</h3>
           <p>Note: Due to legal reasons, only first name can be changed.</p>
-          <input 
+          <input
+            style={{width: 232}}
             type="text" 
             placeholder="Update Student's First Name..." 
             value={newName}
@@ -38,6 +39,7 @@ const NameModal = ({ isOpen, onCancel, onConfirm }) => {
           {error && <p>{error}</p>}
 
           <div>
+            <br/>
             <button onClick={onCancel}>
               Cancel
             </button>
